@@ -14,10 +14,15 @@ import batchRoute from "./routes/batch.route.js";
 
         await mongo.connect();
 
+        //routers
         app.get("/", (req, res) => {
-            res.json({ status: "success", message:"welcome to guvi"})
+            res.json({
+                status: "success",
+                message: "welcome to Student app"
+            })
         });
-       
+        app.use("/batch", batchRoute);
+
 
         app.listen(3001, () => console.log("Server running at 3001"));
     } catch (err) {
